@@ -10,7 +10,7 @@
     font-family: Arial, sans-serif;
   }
 
-header {
+  header {
     background-color: #FFA857;
     padding: 20px 0;
     text-align: center;
@@ -18,16 +18,15 @@ header {
     position: fixed; /* Fixed position */
     top: 0; /* Align to the top */
     z-index: 1000; /* Ensure it's above other content */
-}
+  }
 
-header nav a {
-  color: white; /* Set font color to white */
-  text-decoration: none; /* Remove underline from links */
-  margin: 0 10px; /* Adjust spacing between links */
-  font-family: 'Bradley Hand ITC';
-  font-size: 19px; /* Adjust font size as needed */
-  
-}
+  header nav a {
+    color: white; /* Set font color to white */
+    text-decoration: none; /* Remove underline from links */
+    margin: 0 10px; /* Adjust spacing between links */
+    font-family: 'Bradley Hand ITC';
+    font-size: 19px; /* Adjust font size as needed */
+  }
 
   header nav button {
     background-color: #223BAC; /* Set button color to #223BAC */
@@ -36,12 +35,12 @@ header nav a {
     padding: 3px 6px; /* Adjust button padding */
     margin: 0 10px; /* Adjust spacing between buttons */
     cursor: pointer; /* Indicate clickable element */
-border-radius: 20px;
+    border-radius: 20px;
   }
 
-header nav a:hover {
-  color: #FFA857; /* Change text color on hover */
-}
+  header nav a:hover {
+    color: #FFA857; /* Change text color on hover */
+  }
 
   .gallery-container {
     display: flex;
@@ -51,18 +50,38 @@ header nav a:hover {
     overflow-y: scroll; /* Allow scrolling through images */
     scroll-snap-type: y mandatory; /* Snap to each image */
   }
+
   .gallery-item {
     height: 120vh; /* Full viewport height for each image */
     scroll-snap-align: start; /* Start snapping at each image */
     width: 100%; /* Preserve aspect ratio */
     max-width: 100%; /* Ensure image doesn't overflow */
   }
+
   .gallery-item img {
     height: 100%; /* Make sure image fills the container height */
     width: 100%; /* Preserve aspect ratio */
     max-width: 100%; /* Ensure image doesn't overflow */
     display: block; /* Remove extra space below inline images */
     margin: 0 auto; /* Center image horizontally */
+  }
+
+  /* Desktop view */
+  @media screen and (min-width: 768px) {
+    .mobile-only {
+      display: none; /* Hide mobile images */
+    }
+  }
+
+  /* Mobile view */
+  @media screen and (max-width: 767px) {
+    .desktop-only {
+      display: none; /* Hide desktop images */
+    }
+    
+    header {
+      display: none; /* Hide header in mobile view */
+    }
   }
 </style>
 </head>
@@ -79,7 +98,9 @@ header nav a:hover {
     </nav>
   </header>
 
-<section id="home" class="section">
+  <!-- Desktop Images -->
+  <div class="desktop-only">
+    <section id="home" class="section">
       <div class="gallery-item"><img src="images/1.png" alt="Project 1"></div>
     </section>
     <section id="about" class="section">
@@ -99,6 +120,31 @@ header nav a:hover {
     </section>
     <section id="contact" class="section">
       <div class="gallery-item"><img src="images/7.png" alt="Project 7"></div>
+    </section>
+  </div>
+
+  <!-- Mobile Images -->
+  <div class="mobile-only">
+    <section id="home" class="section">
+      <div class="gallery-item"><img src="images/mobile/1.png" alt="Project 1"></div>
+    </section>
+    <section id="about" class="section">
+      <div class="gallery-item"><img src="images/mobile/2.png" alt="Project 2"></div>
+    </section>
+    <section id="expertise" class="section">
+      <div class="gallery-item"><img src="images/mobile/3.png" alt="Project 3"></div>
+    </section>
+    <section id="experience" class="section">
+      <div class="gallery-item"><img src="images/mobile/4.png" alt="Project 4"></div>
+    </section>
+    <section id="products" class="section">
+      <div class="gallery-item"><img src="images/mobile/5.png" alt="Project 5"></div>
+    </section>
+    <section id="education" class="section">
+      <div class="gallery-item"><img src="images/mobile/6.png" alt="Project 6"></div>
+    </section>
+    <section id="contact" class="section">
+      <div class="gallery-item"><img src="images/mobile/7.png" alt="Project 7"></div>
     </section>
   </div>
 </body>
